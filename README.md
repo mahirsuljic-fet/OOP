@@ -18,3 +18,6 @@ Opis direktorija:
 	Definicije funkcija mogu pomoći pri učenju te ih vrijedi pogledati, ali nisu nužno napisane za tu namjenu i njihov kod nije pojašnjen.
 	Primjer kako se ovaj fajl i funkcije u njemu mogu koristiti je dat u fajlu <i>usefulminifuncs-example.cpp</i>.
 </p>
+
+**.clang-format**
+U ovom fajlu se nalazi konfiguracija po kojoj nvim formatira kod pomoću clang-format. Uglavnom ignorisati.
