@@ -1,0 +1,3 @@
+cin ne mora uspjeti.
+Ako ne uspije varijabla u koju pise dobija random vrijednost ili eventualno ostaje nepromijenjena.
+
