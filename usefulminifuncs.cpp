@@ -130,7 +130,15 @@ void print_container(
   const std::string& prepend = "",
   const std::string& append = "\n");
 
-// funkcija koja printa container koji je niz elemenata tipa T
+// funkcija koja printa niz elemenata tipa T
+template <typename T, size_t N>
+void print_container(
+  const T (&arr)[N],
+  const std::string& seperate_string = " ",
+  const std::string& prepend = "",
+  const std::string& append = "\n");
+
+// funkcija koja printa je niz elemenata tipa T
 // koristeci pointer na pocetak niza i njegovu velicinu kao parametre
 template <typename T>
 void print_container(
@@ -140,7 +148,7 @@ void print_container(
   const std::string& prepend = "",
   const std::string& append = "\n");
 
-// funkcija koja printa container koji je niz elemenata tipa T
+// funkcija koja printa je niz elemenata tipa T
 // koristeci pointer na pocetak i pointer na kraj niza kao parametre
 template <typename T>
 void print_container(
@@ -328,6 +336,19 @@ void print_container(
   }
 
   std::cout << it->first << seperate_key_value << it->second << append;
+}
+
+template <typename T, size_t N>
+void print_container(
+  const T (&arr)[N],
+  const std::string& seperate_string,
+  const std::string& prepend,
+  const std::string& append)
+{
+  std::cout << prepend;
+  for (size_t i = 0; i < N; ++i)
+    std::cout << arr[i] << seperate_string;
+  std::cout << append;
 }
 
 template <typename T>
