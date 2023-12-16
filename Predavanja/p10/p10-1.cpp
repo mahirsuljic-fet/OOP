@@ -2,17 +2,17 @@
 
 class radnik
 {
- private:
-  std::string _ime;
-  double _plata;
-  int _godine;
-  // _ je konvencija za privatne varijable
+  private:
+    std::string _ime;
+    double _plata;
+    int _godine;
+    // _ je konvencija za privatne varijable
 
- public:
-  void povecaj_platu(double);
-  void smanji_platu(double);
-  std::istream& ucitaj(std::istream&);
-  int godina_do_penzije() const; // const - obecajem da necu mijenjat radnika
+  public:
+    void povecaj_platu(double);
+    void smanji_platu(double);
+    std::istream& ucitaj(std::istream&);
+    int godina_do_penzije() const; // const - obecajem da necu mijenjat radnika
 };
 
 /*

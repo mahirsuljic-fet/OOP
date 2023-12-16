@@ -6,9 +6,10 @@ nakon čega će se napraviti direktorija "OOP" na mjestu gdje ste izvršili koma
 
 Opis direktorija:
 - _Predavanja_	- prezentacije, kod i bilješke sa predavanja  
-- _Vjezbe_	- zadaci i bilješke sa vježbi  
+- _Vjezbe_		- zadaci i bilješke sa vježbi  
 - _Zadace_   	- urađene zadaće sa classroom-a  
-- _Practice_  	- neki urađeni zadaci, nevezano za predmet  
+- _Zadaci_  	- urađeni zadaci, vezani za gradivo predmeta
+	- _Other_ 	- urađeni zadaci, nevezani za gradivo predmeta
 - _Learning_  	- kod koji nije nužno vezan za predmet, ali demonstrira neke povezane koncepte, uglavnom ignorisati
 
 <br>
