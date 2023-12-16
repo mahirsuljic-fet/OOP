@@ -9,7 +9,7 @@ Opis direktorija:
 - _Vjezbe_		- zadaci i bilješke sa vježbi  
 - _Zadace_   	- urađene zadaće sa classroom-a  
 - _Zadaci_  	- urađeni zadaci, vezani za gradivo predmeta
-	- _Other_ 	- urađeni zadaci, nevezani za gradivo predmeta
+	- _Random_ 	- urađeni zadaci, nevezani za gradivo predmeta
 - _Learning_  	- kod koji nije nužno vezan za predmet, ali demonstrira neke povezane koncepte, uglavnom ignorisati
 
 <br>
