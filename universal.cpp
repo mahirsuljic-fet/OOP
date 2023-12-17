@@ -2,11 +2,18 @@
 #include <iostream>
 #include <vector>
 
+struct Test
+{
+    int a;
+
+    Test() { std::cout << "Test1\n"; };
+    Test(int x) :
+      a { x } { std::cout << "Test2\n"; };
+};
+
 int main(int argc, char* argv[])
 {
-  int a[] = { 1, 2, 3, 4, 5, 6 };
-
-  print_container(a);
+  Test t;
 
   return 0;
 }
