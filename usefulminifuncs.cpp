@@ -138,7 +138,7 @@ void print_container(
   const std::string& prepend = "",
   const std::string& append = "\n");
 
-// funkcija koja printa je niz elemenata tipa T
+// funkcija koja printa container koji je niz elemenata tipa T
 // koristeci pointer na pocetak niza i njegovu velicinu kao parametre
 template <typename T>
 void print_container(
@@ -148,7 +148,7 @@ void print_container(
   const std::string& prepend = "",
   const std::string& append = "\n");
 
-// funkcija koja printa je niz elemenata tipa T
+// funkcija koja printa container koji je niz elemenata tipa T
 // koristeci pointer na pocetak i pointer na kraj niza kao parametre
 template <typename T>
 void print_container(
@@ -170,7 +170,7 @@ std::vector<int> random_vector_int(const unsigned int& n_element, const int& n_s
   std::vector<int> vec;
   vec.reserve(n_element);
 
-  for (int i = 0; i < n_element; i++)
+  for (int i = 0; i < n_element; ++i)
     vec.push_back(rand() % (n_end - n_start + 1) + n_start);
 
   return vec;
@@ -192,7 +192,7 @@ std::list<int> random_list_int(const unsigned int& n_element, const int& n_start
   srand(rand() ^ (unsigned)time(NULL));
   std::list<int> list;
 
-  for (int i = 0; i < n_element; i++)
+  for (int i = 0; i < n_element; ++i)
     list.push_back(rand() % (n_end - n_start + 1) + n_start);
 
   return list;
@@ -229,7 +229,7 @@ int* ordered_array_int(const unsigned int& n_element, const int& n_start, const 
 {
   int* arr = new int[n_element];
 
-  for (int i = 0; i < n_element; i++)
+  for (int i = 0; i < n_element; ++i)
     arr[i] = i * n_inc + n_start;
 
   return arr;
@@ -240,7 +240,7 @@ int* random_array_int(const unsigned int& n_element, const int& n_start, const i
   srand(rand() ^ (unsigned)time(NULL));
   int* arr = new int[n_element];
 
-  for (int i = 0; i < n_element; i++)
+  for (int i = 0; i < n_element; ++i)
     arr[i] = rand() % (n_end - n_start + 1) + n_start;
 
   return arr;
@@ -258,7 +258,7 @@ void print_container(
 
   if (it == end) return;
 
-  end--;
+  --end;
 
   std::cout << prepend;
   while (it != end)
@@ -279,7 +279,7 @@ void print_container(
 
   if (it == end) return;
 
-  end--;
+  --end;
 
   std::cout << prepend;
   while (it != end)
@@ -301,13 +301,13 @@ void print_container(
 
   if (it == end) return;
 
-  end--;
+  --end;
 
   std::cout << prepend;
   while (it != end)
   {
     std::cout << it->first << seperate_key_value << it->second << seperate_string;
-    it++;
+    ++it;
   }
 
   std::cout << it->first << seperate_key_value << it->second << append;
@@ -326,13 +326,13 @@ void print_container(
 
   if (it == end) return;
 
-  end--;
+  --end;
 
   std::cout << prepend;
   while (it != end)
   {
     std::cout << it->first << seperate_key_value << it->second << seperate_string;
-    it++;
+    ++it;
   }
 
   std::cout << it->first << seperate_key_value << it->second << append;
@@ -360,7 +360,7 @@ void print_container(
   const std::string& append)
 {
   std::cout << prepend;
-  for (size_t i = 0; i < size; i++)
+  for (size_t i = 0; i < size; ++i)
     std::cout << begin[i] << seperate_string;
   std::cout << append;
 }
@@ -375,7 +375,7 @@ void print_container(
 {
   if (begin == end) return;
 
-  end--;
+  --end;
 
   std::cout << prepend;
   while (begin != end)
