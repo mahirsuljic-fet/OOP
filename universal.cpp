@@ -2,18 +2,28 @@
 #include <iostream>
 #include <vector>
 
-struct Test
+struct Foo
 {
-    int a;
+    Foo()
+    {
+      std::cout << "DC\n";
+    }
 
-    Test() { std::cout << "Test1\n"; };
-    Test(int x) :
-      a { x } { std::cout << "Test2\n"; };
+    Foo(const Foo& f)
+    {
+      std::cout << "DC\n";
+    }
+
+    ~Foo()
+    {
+      std::cout << "D\n";
+    }
 };
 
 int main(int argc, char* argv[])
 {
-  Test t;
+  Foo a;
+  Foo& b { a };
 
   return 0;
 }
