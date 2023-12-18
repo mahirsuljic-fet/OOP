@@ -10,6 +10,7 @@ Opis direktorija:
 - _Zadace_   	- urađene zadaće sa classroom-a  
 - _Zadaci_  	- urađeni zadaci, vezani za gradivo predmeta
 	- _Random_ 	- urađeni zadaci, nevezani za gradivo predmeta
+- _Testovi_  	- urađeni testovi sa rokova
 - _Learning_  	- kod koji nije nužno vezan za predmet, ali demonstrira neke povezane koncepte, uglavnom ignorisati
 
 <br>
