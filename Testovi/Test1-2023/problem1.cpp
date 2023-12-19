@@ -53,13 +53,18 @@ int main()
     return 0;
   }
 
-  if (n <= 0)
+  vector<int> vec;
+
+  try
   {
-    cout << "Broj mora biti > 0!\n";
+    vec = fib(n);
+  }
+  catch (runtime_error err)
+  {
+    cout << err.what() << endl;
     return 0;
   }
 
-  vector<int> vec = fib(n);
   auto f = [](int x) { return x % 11 == 0; };
   auto el = pronadji(vec.begin(), vec.end(), f);
 
