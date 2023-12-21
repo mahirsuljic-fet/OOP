@@ -158,6 +158,14 @@ void print_container(
   const std::string& prepend = "",
   const std::string& append = "\n");
 
+// funkcija koja printa container koji je initializer_list sa elementima tipa T
+template <typename T>
+void print_container(
+  const std::initializer_list<T>& init_list,
+  const std::string& seperate_string = ", ",
+  const std::string& prepend = "{ ",
+  const std::string& append = " }\n");
+
 // ################
 // #              #
 // #  DEFINICIJE  #
@@ -382,4 +390,25 @@ void print_container(
     std::cout << *begin++ << seperate_string;
 
   std::cout << *begin << append;
+}
+
+template <typename T>
+void print_container(
+  const std::initializer_list<T>& init_list,
+  const std::string& seperate_string,
+  const std::string& prepend,
+  const std::string& append)
+{
+  auto it = init_list.begin();
+  auto end = init_list.end();
+
+  if (it == end) return;
+
+  --end;
+
+  std::cout << prepend;
+  while (it != end)
+    std::cout << *it++ << seperate_string;
+
+  std::cout << *it << append;
 }
