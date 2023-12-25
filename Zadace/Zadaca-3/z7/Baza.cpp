@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <string>
 
-void BazaRadnika::ucitaj(std::istream stream)
+void BazaRadnika::ucitaj(std::istream& stream)
 {
   std::string ime;
   double godine;
@@ -14,7 +14,7 @@ void BazaRadnika::ucitaj(std::istream stream)
     dodaj_radnika(ime, godine, plata);
 }
 
-void BazaRadnika::ispisi(std::ostream stream) const
+void BazaRadnika::ispisi(std::ostream& stream) const
 {
   for (const auto& el : _radnici)
     stream << el.ime() << " | " << el.godine() << " | " << el.plata() << std::endl;

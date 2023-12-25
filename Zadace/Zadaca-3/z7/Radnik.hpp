@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <string>
+
 class Radnik
 {
   private:
