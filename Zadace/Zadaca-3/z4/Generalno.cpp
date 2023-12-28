@@ -4,14 +4,16 @@
 #include "Ocjena.hpp"
 #include <iostream>
 #include <limits>
-#include <list>
 #include <stdexcept>
 #include <string>
 
 #define BROJ_IZBORA_STUDENT 8
 
+namespace ms
+{
 BazaStudenata baza_studenata;
 BazaPredmeta baza_predmeta;
+}
 
 void provjeri_handle_nevalidan_unos()
 {
@@ -52,7 +54,7 @@ void unos_studenta()
   try
   {
     provjeri_handle_nevalidan_unos();
-    baza_studenata.dodaj_studenta(brojIndeksa, ime, prezime, grad);
+    ms::baza_studenata.dodaj_studenta(brojIndeksa, ime, prezime, grad);
     std::cout << "\nStudent uspjesno unesen!\n\n";
   }
   catch (std::domain_error err)
@@ -80,7 +82,7 @@ void unos_predmeta()
   try
   {
     provjeri_handle_nevalidan_unos();
-    baza_predmeta.dodaj_predmet(naziv, odsjek);
+    ms::baza_predmeta.dodaj_predmet(naziv, odsjek);
     std::cout << "\nPredmet uspjesno unesen!\n\n";
   }
   catch (std::domain_error err)
@@ -100,7 +102,7 @@ void studenti_podaci()
   try
   {
     std::cout << std::endl;
-    baza_studenata.ispis();
+    ms::baza_studenata.ispis();
   }
   catch (std::runtime_error err)
   {
@@ -114,7 +116,7 @@ void studenti_ocjene()
   try
   {
     std::cout << std::endl;
-    baza_studenata.ispis_full();
+    ms::baza_studenata.ispis_full();
   }
   catch (std::runtime_error err)
   {
@@ -127,11 +129,11 @@ void prosjek()
 {
   try
   {
-    auto prosjek_predmeti = baza_studenata.prosjek_predmeti();
+    auto prosjek_predmeti = ms::baza_studenata.prosjek_predmeti();
 
     std::cout << "\nPROSJEK\n\n"
                  "Ukupni prosjek: "
-              << baza_studenata.prosjek_ukupni() << std::endl
+              << ms::baza_studenata.prosjek_ukupni() << std::endl
               << "Prosjek po predmetima:\n";
 
     for (auto&& el : prosjek_predmeti)
@@ -163,9 +165,9 @@ void odabir_izmjena_studenta()
     return;
   }
 
-  auto student = baza_studenata.pronadji(br_in);
+  auto student = ms::baza_studenata.pronadji(br_in);
 
-  if (student == baza_studenata.end())
+  if (student == ms::baza_studenata.end())
   {
     std::cout << "\n\nStudent ne postoji!\n\n";
     return;
@@ -243,7 +245,7 @@ void odabir_izmjena_studenta()
         std::cout << "Nema unesenih ocjena!\n\n";
       break;
     case 7:
-      baza_studenata.pronadji_nc(*student)->izbrisi_ocjene();
+      ms::baza_studenata.pronadji_nc(*student)->izbrisi_ocjene();
       std::cout << "Ocjene studenta " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << " uspjesno izbrisane!\n\n";
       break;
     case 8:
@@ -258,7 +260,7 @@ void odabir_izmjena_studenta()
 
 void student_promijeni_broj_indeksa(std::string stari_broj_indeksa)
 {
-  auto student = baza_studenata.pronadji_nc(stari_broj_indeksa);
+  auto student = ms::baza_studenata.pronadji_nc(stari_broj_indeksa);
   std::string broj_indeksa;
 
   std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
@@ -286,7 +288,7 @@ void student_promijeni_broj_indeksa(std::string stari_broj_indeksa)
 
 void student_promijeni_ime(std::string broj_indeksa)
 {
-  auto student = baza_studenata.pronadji_nc(broj_indeksa);
+  auto student = ms::baza_studenata.pronadji_nc(broj_indeksa);
   std::string ime;
 
   std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
@@ -309,7 +311,7 @@ void student_promijeni_ime(std::string broj_indeksa)
 
 void student_promijeni_prezime(std::string broj_indeksa)
 {
-  auto student = baza_studenata.pronadji_nc(broj_indeksa);
+  auto student = ms::baza_studenata.pronadji_nc(broj_indeksa);
   std::string prezime;
 
   std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
@@ -332,7 +334,7 @@ void student_promijeni_prezime(std::string broj_indeksa)
 
 void student_promijeni_grad(std::string broj_indeksa)
 {
-  auto student = baza_studenata.pronadji_nc(broj_indeksa);
+  auto student = ms::baza_studenata.pronadji_nc(broj_indeksa);
   std::string grad;
 
   std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << " - " << student->grad << "\n\n"
@@ -360,7 +362,7 @@ void student_promijeni_grad(std::string broj_indeksa)
 
 void student_dodavanje_ocjene(std::string broj_indeksa)
 {
-  auto student = baza_studenata.pronadji_nc(broj_indeksa);
+  auto student = ms::baza_studenata.pronadji_nc(broj_indeksa);
   std::string naziv_predmeta;
   int ocjena = 0;
 
@@ -376,7 +378,7 @@ void student_dodavanje_ocjene(std::string broj_indeksa)
   try
   {
     provjeri_handle_nevalidan_unos();
-    student->dodaj_ocjenu(OcjenaIzPredmeta(ocjena, naziv_predmeta, baza_predmeta));
+    student->dodaj_ocjenu(OcjenaIzPredmeta(ocjena, naziv_predmeta, ms::baza_predmeta));
     std::cout << "\nOcjena uspjesno dodana!\n\n";
   }
   catch (std::out_of_range err)

@@ -3,6 +3,7 @@
 #include "Generalno.hpp"
 #include <iostream>
 #include <limits>
+#include <stdexcept>
 #include <string>
 
 #define BROJ_IZBORA_GLAVNI 6

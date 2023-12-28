@@ -19,7 +19,6 @@ void BazaStudenata::ispis_full() const
 
   for (const auto& el : studenti_)
   {
-
     std::cout << el.broj_indeksa << ": " << el.ime << " " << el.prezime << " - " << el.grad;
 
     if (el.ocjene.size() > 0)

@@ -2,6 +2,14 @@
 #include <iostream>
 #include <string>
 
+Student::Student(std::string broj_indeksa, std::string ime, std::string prezime, std::string grad)
+{
+  promijeni_broj_indeksa(broj_indeksa);
+  promijeni_ime(ime);
+  promijeni_prezime(prezime);
+  promijeni_grad(grad);
+}
+
 void Student::ispisi_podatke() const
 {
   std::cout << "Broj indeksa: " << this->broj_indeksa << std::endl

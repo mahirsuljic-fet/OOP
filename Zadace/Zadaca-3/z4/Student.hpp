@@ -1,9 +1,6 @@
 #pragma once
 
 #include "Ocjena.hpp"
-#include "Predmet.hpp"
-#include <algorithm>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -25,11 +22,5 @@ struct Student
     void dodaj_ocjenu(OcjenaIzPredmeta ocjena) { this->ocjene.push_back(ocjena); };
     double prosjek() const;
 
-    Student(std::string broj_indeksa, std::string ime, std::string prezime, std::string grad)
-    {
-      promijeni_broj_indeksa(broj_indeksa);
-      promijeni_ime(ime);
-      promijeni_prezime(prezime);
-      promijeni_grad(grad);
-    }
+    Student(std::string broj_indeksa, std::string ime, std::string prezime, std::string grad);
 };
