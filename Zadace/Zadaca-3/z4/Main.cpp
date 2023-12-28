@@ -1,23 +1,11 @@
 // Mahir Suljic - OOP Zadaca 3
 
+#include "Generalno.hpp"
 #include <iostream>
 #include <limits>
 #include <string>
 
 #define BROJ_IZBORA_GLAVNI 6
-
-void unos_studenta();
-void unos_predmeta();
-void odabir_izmjena_studenta();
-void prosjek();
-void studenti_podaci();
-void studenti_ocjene();
-
-void student_promijeni_broj_indeksa(std::string broj_indeksa);
-void student_promijeni_ime(std::string broj_indeksa);
-void student_promijeni_prezime(std::string broj_indeksa);
-void student_promijeni_grad(std::string broj_indeksa);
-void student_dodavanje_ocjene(std::string broj_indeksa);
 
 int main(int argc, char* argv[])
 {
@@ -35,21 +23,15 @@ int main(int argc, char* argv[])
                  "0. izlaz\n\n"
                  "Odaberite opciju: ";
 
-    if (!(std::cin >> izbor))
+    std::cin >> izbor;
+    try
     {
-      if (std::cin.eof())
-      {
-        std::cout << std::endl;
-        return 0;
-
-        //   std::cin.clear();
-        //   std::clearerr(stdin);
-        //   continue;
-      }
-
-      std::cout << "\nIzbor nije validan!\n\n";
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      provjeri_handle_nevalidan_unos();
+    }
+    catch (std::runtime_error err)
+    {
+      std::cout << std::endl
+                << err.what() << "\n\n";
       continue;
     }
 

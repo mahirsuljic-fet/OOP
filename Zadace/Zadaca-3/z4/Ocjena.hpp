@@ -8,8 +8,8 @@
 
 struct OcjenaIzPredmeta
 {
-    int ocjena;
     std::list<Predmet>::const_iterator predmet;
+    int ocjena;
 
     OcjenaIzPredmeta(const int& ocjena, const std::list<Predmet>::const_iterator& predmet)
     {

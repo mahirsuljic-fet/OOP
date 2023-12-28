@@ -11,14 +11,13 @@ class BazaStudenata
     std::list<Student> studenti_;
 
   public:
-    void ispis() const;
-    void ispis_full() const;
     const Student& dodaj_studenta(const std::string& brojIndeksa, const std::string& ime, const std::string& prezime, const std::string& grad);
     bool izbrisi_studenta(const std::string& brojIndeksa);
     bool postoji(const std::string& brojIndeksa) const;
+    void ispis_full() const;
+    void ispis() const;
     double prosjek_ukupni() const;
     std::map<std::string, double> prosjek_predmeti() const;
-
     std::list<Student>::const_iterator pronadji(const std::string& brojIndeksa) const;
     std::list<Student>::const_iterator pronadji(const Student& student) const;
     std::list<Student>::iterator pronadji_nc(const std::string& brojIndeksa);

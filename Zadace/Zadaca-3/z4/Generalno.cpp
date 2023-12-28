@@ -1,3 +1,4 @@
+#include "Generalno.hpp"
 #include "BazaPredmeta.hpp"
 #include "BazaStudenata.hpp"
 #include "Ocjena.hpp"
@@ -12,18 +13,26 @@
 BazaStudenata baza_studenata;
 BazaPredmeta baza_predmeta;
 
-void unos_studenta();
-void unos_predmeta();
-void odabir_izmjena_studenta();
-void prosjek();
-void studenti_podaci();
-void studenti_ocjene();
+void provjeri_handle_nevalidan_unos()
+{
+  if (std::cin.fail())
+  {
+    if (std::cin.eof())
+    {
+      std::cout << std::endl;
 
-void student_promijeni_broj_indeksa(std::string broj_indeksa);
-void student_promijeni_ime(std::string broj_indeksa);
-void student_promijeni_prezime(std::string broj_indeksa);
-void student_promijeni_grad(std::string broj_indeksa);
-void student_dodavanje_ocjene(std::string broj_indeksa);
+      std::cin.clear();
+      std::clearerr(stdin);
+
+      throw std::runtime_error("Detektovan EOF karakter!");
+    }
+
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    throw std::runtime_error("Unos nije validan!");
+  }
+}
 
 void unos_studenta()
 {
@@ -42,8 +51,8 @@ void unos_studenta()
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     baza_studenata.dodaj_studenta(brojIndeksa, ime, prezime, grad);
-
     std::cout << "\nStudent uspjesno unesen!\n\n";
   }
   catch (std::domain_error err)
@@ -70,9 +79,14 @@ void unos_predmeta()
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     baza_predmeta.dodaj_predmet(naziv, odsjek);
-
     std::cout << "\nPredmet uspjesno unesen!\n\n";
+  }
+  catch (std::domain_error err)
+  {
+    std::cout << std::endl
+              << err.what() << "\n\n";
   }
   catch (std::runtime_error err)
   {
@@ -138,6 +152,17 @@ void odabir_izmjena_studenta()
   std::cout << "Broj indeksa: ";
   std::getline(std::cin, br_in);
 
+  try
+  {
+    provjeri_handle_nevalidan_unos();
+  }
+  catch (std::runtime_error err)
+  {
+    std::cout << std::endl
+              << err.what() << "\n\n";
+    return;
+  }
+
   auto student = baza_studenata.pronadji(br_in);
 
   if (student == baza_studenata.end())
@@ -164,21 +189,15 @@ void odabir_izmjena_studenta()
                  "0. glavni meni\n\n"
                  "Odaberite opciju: ";
 
-    if (!(std::cin >> izbor))
+    std::cin >> izbor;
+    try
     {
-      if (std::cin.eof())
-      {
-        std::cout << std::endl;
-        return;
-
-        //   std::cin.clear();
-        //   std::clearerr(stdin);
-        //   continue;
-      }
-
-      std::cout << "\nIzbor nije validan!\n\n";
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      provjeri_handle_nevalidan_unos();
+    }
+    catch (std::runtime_error err)
+    {
+      std::cout << std::endl
+                << err.what() << "\n\n";
       continue;
     }
 
@@ -217,9 +236,7 @@ void odabir_izmjena_studenta()
       if (student->ocjene.size() > 0)
       {
         std::cout << "Ocjene:\n";
-
         student->ispisi_ocjene();
-
         std::cout << "\nProsjek: " << student->prosjek() << std::endl;
       }
       else
@@ -244,14 +261,14 @@ void student_promijeni_broj_indeksa(std::string stari_broj_indeksa)
   auto student = baza_studenata.pronadji_nc(stari_broj_indeksa);
   std::string broj_indeksa;
 
-  std::cout
-    << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
-    << "Novi broj indeksa: ";
+  std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
+            << "Novi broj indeksa: ";
 
   std::getline(std::cin, broj_indeksa);
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     student->promijeni_broj_indeksa(broj_indeksa);
     std::cout << "\nBroj indeksa uspjesno promijenjen!\n\n";
   }
@@ -272,23 +289,18 @@ void student_promijeni_ime(std::string broj_indeksa)
   auto student = baza_studenata.pronadji_nc(broj_indeksa);
   std::string ime;
 
-  std::cout
-    << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
-    << "Novo ime: ";
+  std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
+            << "Novo ime: ";
 
   std::getline(std::cin, ime);
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     student->promijeni_ime(ime);
     std::cout << "\nIme uspjesno promijenjeno!\n\n";
   }
   catch (std::domain_error err)
-  {
-    std::cout << std::endl
-              << err.what() << "\n\n";
-  }
-  catch (std::runtime_error err)
   {
     std::cout << std::endl
               << err.what() << "\n\n";
@@ -300,23 +312,18 @@ void student_promijeni_prezime(std::string broj_indeksa)
   auto student = baza_studenata.pronadji_nc(broj_indeksa);
   std::string prezime;
 
-  std::cout
-    << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
-    << "Novo prezime: ";
+  std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << "\n\n"
+            << "Novo prezime: ";
 
   std::getline(std::cin, prezime);
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     student->promijeni_prezime(prezime);
     std::cout << "\nPrezime uspjesno promijenjeno!\n\n";
   }
   catch (std::domain_error err)
-  {
-    std::cout << std::endl
-              << err.what() << "\n\n";
-  }
-  catch (std::runtime_error err)
   {
     std::cout << std::endl
               << err.what() << "\n\n";
@@ -328,14 +335,14 @@ void student_promijeni_grad(std::string broj_indeksa)
   auto student = baza_studenata.pronadji_nc(broj_indeksa);
   std::string grad;
 
-  std::cout
-    << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << " - " << student->grad << "\n\n"
-    << "Novi grad: ";
+  std::cout << "Student: " << student->ime << " " << student->prezime << ", " << student->broj_indeksa << " - " << student->grad << "\n\n"
+            << "Novi grad: ";
 
   std::getline(std::cin, grad);
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     student->promijeni_grad(grad);
     std::cout << "\nGrad uspjesno promijenjen!\n\n";
   }
@@ -364,26 +371,11 @@ void student_dodavanje_ocjene(std::string broj_indeksa)
   std::getline(std::cin, naziv_predmeta);
 
   std::cout << "Ocjena: ";
-  if (!(std::cin >> ocjena))
-  {
-    if (std::cin.eof())
-    {
-      std::cout << std::endl;
-      return;
-
-      //   std::cin.clear();
-      //   std::clearerr(stdin);
-      //   continue;
-    }
-
-    std::cout << "\nUnos nije validan!\n\n";
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    return;
-  }
+  std::cin >> ocjena;
 
   try
   {
+    provjeri_handle_nevalidan_unos();
     student->dodaj_ocjenu(OcjenaIzPredmeta(ocjena, naziv_predmeta, baza_predmeta));
     std::cout << "\nOcjena uspjesno dodana!\n\n";
   }

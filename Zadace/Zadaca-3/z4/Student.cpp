@@ -23,7 +23,7 @@ void Student::ispisi_ocjene() const
 
 void Student::promijeni_broj_indeksa(std::string broj_indeksa)
 {
-  if (broj_indeksa.size() == 0)
+  if (broj_indeksa.size() == 0 || broj_indeksa.find_first_not_of(' ') == std::string::npos)
     throw std::domain_error("Student ne moze imati prazan broj indeksa!");
   if (broj_indeksa.find(' ') != std::string::npos)
     throw std::domain_error("Broj indeksa ne moze biti sacinjen od vise rijeci!");
