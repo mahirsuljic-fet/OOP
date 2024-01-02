@@ -8,7 +8,7 @@ struct Foo
 };
 
 // Foo operator+(const Foo& a, const Foo& b); // isto kao i implementacija kao metoda
-// void  operator-(Foo, Foo); // validno, ali sad ne moze npr a - b - c, jer a-b vrati void
+// void operator-(Foo, Foo); // validno, ali sad ne moze npr a - b - c, jer a-b vrati void
 Foo operator-(Foo, Foo); // binarni -
 Foo operator+(int, Foo); // za 2 + a
 
