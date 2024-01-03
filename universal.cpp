@@ -1,41 +1,65 @@
 #include "usefulminifuncs.cpp"
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <vector>
 
 struct Foo
 {
-    Foo()
+    std::string a;
+
+    Foo() :
+      a { "" } { std::cout << "DC -> " << a << std::endl; }
+
+    Foo(std::string s) :
+      a { s } { std::cout << "DC{s} -> " << a << std::endl; }
+
+    ~Foo() { std::cout << "D -> " << a << std::endl; }
+
+    Foo(const Foo& f) :
+      a { f.a } { std::cout << "CC -> " << a << std::endl; }
+
+    Foo(Foo&& f) :
+      a { std::move(f.a) } { std::cout << "MC -> " << a << std::endl; }
+
+    Foo& operator=(const Foo& f)
     {
-      std::cout << "DC " << std::endl;
+      a = f.a;
+      std::cout << "COPY=\n";
+      return *this;
     }
 
-    Foo(const Foo&)
+    Foo& operator=(Foo&& f)
     {
-      std::cout << "CC" << std::endl;
+      a = std::move(f.a);
+      std::cout << "MOVE=\n";
+      return *this;
     }
 
-    Foo(Foo&&)
+    Foo& operator=(const std::string&& s)
     {
-      std::cout << "MCC" << std::endl;
-    }
-
-    ~Foo()
-    {
-      std::cout << "D " << std::endl;
+      a = std::move(s);
+      std::cout << "MOVE_s=\n";
+      return *this;
     }
 };
 
-// copy constuction elision
-// zagarantovan od c++17
-// obavezna optimizacija - ne moze se izskljucit od 17
-//
-// ne mora znacit da ce kompajler uvijek pozivat move i copy konstruktor
-// te nije nuzno dobro da oni proizvode popratne efekte
+// Foo bar(bool t)
+// {
+//   Foo a { "a" }, b { "b" };
+//   if (t)
+//     return a;
+//   else
+//     return b;
+// }
 
 int main(int argc, char* argv[])
 {
-  Foo f = Foo {};
+  Foo a { "a" };
+  Foo b { "b" };
+
+  a = std::move(b);
+
+  std::cout << "|" << b.a.empty() << "|" << std::endl;
 
   return 0;
 }

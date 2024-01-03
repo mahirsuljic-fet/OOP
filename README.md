@@ -8,8 +8,9 @@ Opis direktorija:
 - _Predavanja_	- prezentacije, kod i bilješke sa predavanja  
 - _Vjezbe_		- zadaci i bilješke sa vježbi  
 - _Zadace_   	- urađene zadaće sa classroom-a  
-- _Zadaci_  	- urađeni zadaci, vezani za gradivo predmeta
-	- _Random_ 	- urađeni zadaci, nevezani za gradivo predmeta
+- _Zadaci_  	- urađeni zadaci
+    - _Gradivo_     - urađeni zadaci, vezani za gradivo predmeta
+    - _Random_ 	    - urađeni zadaci, nevezani za gradivo predmeta
 - _Testovi_  	- urađeni testovi sa rokova
 - _Learning_  	- kod koji nije nužno vezan za predmet, ali demonstrira neke povezane koncepte, uglavnom ignorisati
 

@@ -1,55 +1,32 @@
 #include <iostream>
+#include <iterator>
+#include <string>
 
-struct Foo
-{
-    char c { 'a' };
-    Foo() { std::cout << "Foo1 " << c << std::endl; }
-    Foo(char b) :
-      c(b) { std::cout << "Foo2 " << c << std::endl; }
-    ~Foo() { std::cout << "~Foo " << c << std::endl; }
-};
+using std::cout, std::cin, std::endl;
 
-struct Bar
+template <typename input_it, typename output_it, typename lambda>
+void copy_if(input_it __od, input_it __do, output_it __prema, lambda __op)
 {
-    Foo f;
-    Bar() { std::cout << "Bar1" << std::endl; }
-    Bar(char c) :
-      f { c } { std::cout << "Bar2" << std::endl; }
-    ~Bar() { std::cout << "~Bar" << std::endl; }
-};
-
-void tar1(Bar& b)
-{
-  std::cout << "tar1 " << b.f.c << std::endl;
+  for (; __od != __do; ++__od)
+    if (__op(*__od))
+      *__prema = *__od;
 }
 
-void tar2(Foo& f)
+int main()
 {
-  std::cout << "tar2 " << f.c << std::endl;
-}
+  std::ostream_iterator<std::string> cout_it(cout, "\n");
 
-Bar b('b');
-// Foo2 b
-// Bar2
+  *cout_it = "Unesite brojeve (unesite bilo koje slovo za prekid sekvence): ";
 
-int main(int argc, char* argv[])
-{
-  Bar a;
-  // Foo1 a
-  // Bar1
+  copy_if(
+    std::istream_iterator<int>(cin),
+    std::istream_iterator<int>(),
+    std::ostream_iterator<int>(cout, " "),
+    [](int a) {
+      return a > 5;
+    });
 
-  tar1(a);
-  // tar1 a
-
-  tar2(b.f);
-  // tar2 b
-
-  std::cout << "kraj" << std::endl;
-
-  // ~Bar
-  // ~Foo a
-  // ~Bar
-  // ~Foo b
+  cout << endl;
 
   return 0;
 }

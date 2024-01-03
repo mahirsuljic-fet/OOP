@@ -1,5 +1,7 @@
 #include <iostream>
+#include <istream>
 #include <iterator>
+#include <ostream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -22,22 +24,26 @@ void copy_if(const T& OD, const T& DO, U prema, const V& op)
 
 int main(int argc, char* argv[])
 {
-  std::vector<int> brojevi;
-
   std::cout << "Unesite brojeve:\n";
 
-  std::istream_iterator<int> kraj; // default konstrukcija
-  std::istream_iterator<int> it(std::cin); // koristimo std::cin istream
-  std::ostream_iterator<int> izlaz(std::cout, " "); // " " ce se ispisat nakon svakog broja
+  std::istream_iterator<int> kraj; // default konstrukcija, pomocu ovog cemo provjeravat validnost unosa
+  std::istream_iterator<int> it(std::cin); // koristimo std::cin istream, unosit cemo brojeve (int)
+  std::ostream_iterator<int> izlaz(std::cout, " "); // ispisujemo brojeve (int) u os i posle svakog broja " "
 
-  while (it != kraj) // sve dok je unos validan
-  {
-    brojevi.push_back(*it);
-    ++it;
-  }
+  std::vector<int> brojevi(it, kraj);
+
+  // ili "rucno":
+
+  // std::vector<int> brojevi;
+  // while (it != kraj) // sve dok je unos validan
+  // {
+  //   brojevi.push_back(*it);
+  //   ++it;
+  // }
 
   auto func = [](int x) { return x > 5; };
 
+  std::cout << std::endl;
   copy_if(brojevi.cbegin(), brojevi.cend(), izlaz, func);
   std::cout << std::endl;
 
