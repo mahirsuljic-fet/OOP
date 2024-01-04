@@ -11,20 +11,32 @@
 // u main funkciji napisati primjer koristenja funkcije applyMid
 // na kontejnerima vector i list, tretirati iznimku
 
+// alternativa
+// template <typename R, typename T, typename U>
+// R applyMid(const T& p, const T& k, const U& f)
+// ...
+
 template <typename T, typename U>
 auto applyMid(const T& p, const T& k, const U& f)
 {
   int n = 0;
   T it = p;
 
+  // izbroji elemente
   while (it++ != k) ++n;
 
+  // ako je broj elemenata neparan onda ima samo jedan srednji element
   if (n % 2) throw std::logic_error("There can't be only one middle element!");
 
+  // vrati se na pocetak
   it = p;
 
+  // dodji do prvog srednjeg elementa
   for (int i = 0; i < n / 2 - 1; ++i) ++it;
 
+  // sa alternativnom definicijom funkcije:
+  // R a = *it++;
+  // R b = *it;
   auto a = *it++;
   auto b = *it;
 
@@ -48,9 +60,13 @@ int main(int argc, char* argv[])
 
   try
   {
+    // sa alternativnom definicijom funkcije:
+    // int r = applyMid<int>(vec.cbegin(), vec.cend(), f);
     int r = applyMid(vec.cbegin(), vec.cend(), f);
     std::cout << "\nRezultat vektora: " << r << std::endl;
 
+    // sa alternativnom definicijom funkcije:
+    // r = applyMid<int>(l.cbegin(), l.cend(), f);
     r = applyMid(l.cbegin(), l.cend(), f);
     std::cout << "Rezultat liste: " << r << std::endl;
   }
