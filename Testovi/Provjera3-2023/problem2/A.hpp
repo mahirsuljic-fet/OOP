@@ -12,8 +12,8 @@ struct A
 
     void foo() const
     {
-      b1.foo();
       std::cout << "2";
+      b1.foo();
     }
 
     ~A() { std::cout << "0"; }

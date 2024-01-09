@@ -12,8 +12,8 @@ struct B
       std::cout << "4" << s;
     }
 
-    void foo() { std::cout << "5"; }
-    // void foo() const { std::cout << "5"; } // ispravljen kod
+    // void foo() { std::cout << "5"; }
+    void foo() const { std::cout << "5"; } // ispravljen kod
 
     ~B() { std::cout << "9"; }
 };

@@ -30,16 +30,16 @@ int main(int argc, char* argv[])
   std::istream_iterator<int> it(std::cin); // koristimo std::cin istream, unosit cemo brojeve (int)
   std::ostream_iterator<int> izlaz(std::cout, " "); // ispisujemo brojeve (int) u os i posle svakog broja " "
 
-  std::vector<int> brojevi(it, kraj);
+  // std::vector<int> brojevi(it, kraj);
 
   // ili "rucno":
 
-  // std::vector<int> brojevi;
-  // while (it != kraj) // sve dok je unos validan
-  // {
-  //   brojevi.push_back(*it);
-  //   ++it;
-  // }
+  std::vector<int> brojevi;
+  while (it != kraj) // sve dok je unos validan
+  {
+    brojevi.push_back(*it);
+    ++it;
+  }
 
   auto func = [](int x) { return x > 5; };
 
