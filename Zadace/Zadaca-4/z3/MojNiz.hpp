@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <cstddef>
 #include <initializer_list>
 #include <iostream>
@@ -56,6 +57,7 @@ class MojNiz
     T& back() const { return _p[_size - 1]; };
     size_t size() const { return _size; }
     size_t capacity() const { return _cap; }
+    void clear();
     void print(std::ostream& = std::cout) const;
     MojNiz<T>& push_back(T);
     MojNiz<T>& pop_back();
@@ -64,6 +66,8 @@ class MojNiz
 template <typename T>
 MojNiz<T>::MojNiz()
 {
+  std::cout << "DC - T\n";
+
   _size = 0;
   _cap = 1;
   _p = new T[_cap];
@@ -72,6 +76,8 @@ MojNiz<T>::MojNiz()
 template <typename T>
 MojNiz<T>::MojNiz(const bool& b)
 {
+  std::cout << "Cb - T\n";
+
   _size = 0;
   _cap = 1;
 
@@ -84,6 +90,8 @@ MojNiz<T>::MojNiz(const bool& b)
 template <typename T>
 MojNiz<T>::MojNiz(const std::initializer_list<T>& list)
 {
+  std::cout << "IC - T\n";
+
   delete[] _p;
 
   _p = new T[list.size()];
@@ -99,6 +107,8 @@ template <typename T>
 template <typename U>
 MojNiz<T>::MojNiz(const std::initializer_list<U>& list)
 {
+  std::cout << "IC - TU\n";
+
   delete[] _p;
 
   _p = new T[list.size()];
@@ -113,35 +123,37 @@ MojNiz<T>::MojNiz(const std::initializer_list<U>& list)
 template <typename T>
 MojNiz<T>::MojNiz(MojNiz<T>&& original)
 {
+  std::cout << "MC - T\n";
+
   delete[] _p;
 
   _p = original._p;
   _cap = original._cap;
   _size = original._size;
 
-  original._cap = 1;
-  original._size = 0;
-  original._p = new T[_cap];
+  original.clear();
 }
 
 template <typename T>
 template <typename U>
 MojNiz<T>::MojNiz(MojNiz<U>&& original)
 {
+  std::cout << "MC - TU\n";
+
   delete[] _p;
 
-  _p = original._p;
-  _cap = original._cap;
-  _size = original._size;
+  _p = (T*)&original.front();
+  _size = original.size();
+  _cap = original.capacity();
 
-  original._cap = 1;
-  original._size = 0;
-  original._p = new U[_cap];
+  original.clear();
 }
 
 template <typename T>
 MojNiz<T>::MojNiz(const MojNiz<T>& original)
 {
+  std::cout << "CC - T\n";
+
   _p = new T[original._cap];
   _size = original._size;
   _cap = original._cap;
@@ -154,9 +166,11 @@ template <typename T>
 template <typename U>
 MojNiz<T>::MojNiz(const MojNiz<U>& original)
 {
-  _p = new T[original._cap];
-  _size = original._size;
-  _cap = original._cap;
+  std::cout << "CC - TU\n";
+
+  _p = new T[original.capacity()];
+  _size = original.size();
+  _cap = original.capacity();
 
   for (auto i = 0; i < _size; ++i)
     _p[i] = original._p[i];
@@ -165,6 +179,8 @@ MojNiz<T>::MojNiz(const MojNiz<U>& original)
 template <typename T>
 MojNiz<T>& MojNiz<T>::operator=(MojNiz<T>&& other)
 {
+  std::cout << "M= - T\n";
+
   if (this != &other)
   {
     delete[] _p;
@@ -173,9 +189,7 @@ MojNiz<T>& MojNiz<T>::operator=(MojNiz<T>&& other)
     _cap = other._cap;
     _size = other._size;
 
-    other._cap = 1;
-    other._size = 0;
-    other._p = new T[_cap];
+    other.clear();
   }
 
   return *this;
@@ -185,18 +199,15 @@ template <typename T>
 template <typename U>
 MojNiz<T>& MojNiz<T>::operator=(MojNiz<U>&& other)
 {
-  if (this != &other)
-  {
-    delete[] _p;
+  std::cout << "M= - TU\n";
 
-    _p = other._p;
-    _cap = other._cap;
-    _size = other._size;
+  delete[] _p;
 
-    other._cap = 1;
-    other._size = 0;
-    other._p = new U[_cap];
-  }
+  _p = (T*)&other.front();
+  _size = other.size();
+  _cap = other.capacity();
+
+  other.clear();
 
   return *this;
 }
@@ -204,13 +215,12 @@ MojNiz<T>& MojNiz<T>::operator=(MojNiz<U>&& other)
 template <typename T>
 MojNiz<T>& MojNiz<T>::operator=(const MojNiz<T>& other)
 {
+  std::cout << "C= - T\n";
+
   if (this != &other)
   {
     delete[] _p;
-
-    _p = new T[other._cap];
-    _size = other._size;
-    _cap = other._cap;
+    *this = other;
 
     for (auto i = 0; i < _size; ++i)
       _p[i] = other._p[i];
@@ -223,17 +233,16 @@ template <typename T>
 template <typename U>
 MojNiz<T>& MojNiz<T>::operator=(const MojNiz<U>& other)
 {
-  if (this != &other)
-  {
-    delete[] _p;
+  std::cout << "C= - TU\n";
 
-    _p = new T[other._cap];
-    _size = other._size;
-    _cap = other._cap;
+  delete[] _p;
 
-    for (auto i = 0; i < _size; ++i)
-      _p[i] = other._p[i];
-  }
+  _p = (T*)&other.front();
+  _size = other.size();
+  _cap = other.capacity();
+
+  for (auto i = 0; i < _size; ++i)
+    _p[i] = other[i];
 
   return *this;
 }
@@ -241,6 +250,8 @@ MojNiz<T>& MojNiz<T>::operator=(const MojNiz<U>& other)
 template <typename T>
 MojNiz<T>::~MojNiz()
 {
+  std::cout << "D\n";
+
   delete[] _p;
 }
 
@@ -339,6 +350,8 @@ MojNiz<T> operator*(T k, const MojNiz<T>& niz)
 template <typename T>
 MojNiz<T> MojNiz<T>::operator+(const MojNiz<T>& other)
 {
+  std::cout << "+ - T\n";
+
   if (_size != other._size) throw std::invalid_argument("Nizovi nisu iste duzine!");
 
   MojNiz<T> result(false);
@@ -348,7 +361,7 @@ MojNiz<T> MojNiz<T>::operator+(const MojNiz<T>& other)
   result._cap = _cap;
 
   for (auto i = 0; i < _size; ++i)
-    result._p[i] = _p[i] + other._p[i];
+    result._p[i] = _p[i] + other[i];
 
   return result;
 }
@@ -357,7 +370,9 @@ template <typename T>
 template <typename U>
 MojNiz<T> MojNiz<T>::operator+(const MojNiz<U>& other)
 {
-  if (_size != other._size) throw std::invalid_argument("Nizovi nisu iste duzine!");
+  std::cout << "+ - TU\n";
+
+  if (_size != other.size()) throw std::invalid_argument("Nizovi nisu iste duzine!");
 
   MojNiz<T> result(false);
 
@@ -366,7 +381,7 @@ MojNiz<T> MojNiz<T>::operator+(const MojNiz<U>& other)
   result._cap = _cap;
 
   for (auto i = 0; i < _size; ++i)
-    result._p[i] = _p[i] + other._p[i];
+    result._p[i] = _p[i] + other[i];
 
   return result;
 }
@@ -374,6 +389,8 @@ MojNiz<T> MojNiz<T>::operator+(const MojNiz<U>& other)
 template <typename T>
 MojNiz<T> MojNiz<T>::operator+(const MojNiz<T>& other) const
 {
+  std::cout << "+c - T\n";
+
   if (_size != other._size) throw std::invalid_argument("Nizovi nisu iste duzine!");
 
   MojNiz<T> result(false);
@@ -392,6 +409,8 @@ template <typename T>
 template <typename U>
 MojNiz<T> MojNiz<T>::operator+(const MojNiz<U>& other) const
 {
+  std::cout << "+c - TU\n";
+
   if (_size != other._size) throw std::invalid_argument("Nizovi nisu iste duzine!");
 
   MojNiz<T> result(false);
@@ -455,4 +474,11 @@ MojNiz<T>& MojNiz<T>::pop_back()
 {
   --_size;
   return *this;
+}
+
+template <typename T>
+void MojNiz<T>::clear()
+{
+  delete[] _p;
+  *this = MojNiz<T>();
 }
