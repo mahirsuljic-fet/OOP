@@ -4,6 +4,10 @@
 int main(int argc, char* argv[])
 {
   MojNizInt arr;
+  arr = { 1, 2, 3, 4, 5, 6 };
+  arr.push_back(1);
+  arr.print();
+  return 0;
 
   std::cout << arr.capacity() << ": \n";
   arr.print();
