@@ -16,7 +16,7 @@ void print(const MojNiz<T>& a, const MojNiz<U>& b, const MojNiz<V>& c)
 int main(int argc, char* argv[])
 {
   MojNiz<int> a = { 1, 2, 3, 4, 5 };
-  MojNiz<int> b = { 6, 7, 8, 9, 10 };
+  MojNiz<int> b = { 6.1, 7.1, 8.1, 9.1, 10.1 };
   MojNiz<double> c = { 1.1, 3.3, 5.5, 7.7, 9.5 };
 
   print(a, b, c);
