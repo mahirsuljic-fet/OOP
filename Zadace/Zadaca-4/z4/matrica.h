@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <initializer_list>
+#include <iostream>
 #include <ostream>
 #include <stdexcept>
 
@@ -10,8 +11,7 @@ class Matrica
 {
   public:
     Matrica();
-    Matrica(size_t m, size_t n) :
-      _m(m), _n(n), _elements(new T[m * n]) { }
+    Matrica(size_t m, size_t n) : _m(m), _n(n), _elements(new T[m * n]) { }
     Matrica(const std::initializer_list<T>&);
     Matrica(Matrica&&);
     Matrica(const Matrica&);
@@ -61,12 +61,11 @@ Matrica<T>::Matrica(const std::initializer_list<T>& list)
   _elements = new T[_m * _n];
 
   for (auto i = 2; i < list.size(); ++i)
-    _elements[i] = *it++;
+    _elements[i - 2] = *it++;
 }
 
 template <typename T>
-Matrica<T>::Matrica(Matrica<T>&& other) :
-  _m(other._m), _n(other._n), _elements(other._elements)
+Matrica<T>::Matrica(Matrica<T>&& other) : _m(other._m), _n(other._n), _elements(other._elements)
 {
   other._m = 0;
   other._n = 0;
@@ -74,8 +73,7 @@ Matrica<T>::Matrica(Matrica<T>&& other) :
 }
 
 template <typename T>
-Matrica<T>::Matrica(const Matrica<T>& other) :
-  _m(other._m), _n(other._n), _elements(new T[_m * _n])
+Matrica<T>::Matrica(const Matrica<T>& other) : _m(other._m), _n(other._n), _elements(new T[_m * _n])
 {
   for (auto i = 0; i < _m * _n; ++i)
     _elements[i] = other._elements[i];
@@ -84,6 +82,8 @@ Matrica<T>::Matrica(const Matrica<T>& other) :
 template <typename T>
 Matrica<T>& Matrica<T>::operator=(Matrica<T>&& other)
 {
+  delete[] _elements;
+
   _m = other._m;
   _n = other._n;
   _elements = other._elements;

@@ -11,7 +11,7 @@ class MojNiz
     size_t _size;
 
   public:
-    MojNiz(const std::initializer_list<T>&);
+    // MojNiz(const std::initializer_list<T>&);
     template <typename U>
     MojNiz(const std::initializer_list<U>&);
 };
@@ -20,16 +20,16 @@ class MojNiz
 //                                     PITANJE 6                                         //
 //=======================================================================================//
 
-template <typename T>
-MojNiz<T>::MojNiz(const std::initializer_list<T>& list)
-{
-  _p = new T[list.size()];
-  _size = list.size();
-
-  T* it = _p;
-  for (auto& el : list)
-    *it++ = el;
-}
+// template <typenamG T>
+// MojNiz<T>::MojNiz(const std::initializer_list<T>& list)
+// {
+//   _p = new T[list.size()];
+//   _size = list.size();
+//
+//   T* it = _p;
+//   for (auto& el : list)
+//     *it++ = el;
+// }
 
 template <typename T>
 template <typename U>
@@ -45,6 +45,7 @@ MojNiz<T>::MojNiz(const std::initializer_list<U>& list)
 
 int main(int argc, char* argv[])
 {
+  MojNiz<int> a = { 1, 2, 3, 4 };
 
   return 0;
 }
