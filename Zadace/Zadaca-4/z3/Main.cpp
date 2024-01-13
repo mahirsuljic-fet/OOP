@@ -21,6 +21,14 @@ int main(int argc, char* argv[])
 
   print(a, b, c);
 
+  std::cout << std::endl;
+
+  std::cout << "\na + c\n";
+  (a + c).print();
+
+  std::cout << "\nc + a\n";
+  (c + a).print();
+
   a = c++;
 
   std::cout << "\na = c++\n";
