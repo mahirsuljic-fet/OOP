@@ -31,8 +31,8 @@
 
 struct Evidencija
 {
-  std::string rijec;
-  int frekvencija = 0;
+    std::string rijec;
+    int frekvencija = 0;
 };
 
 int find_rijec(const std::vector<Evidencija>& vec, const std::string& s)

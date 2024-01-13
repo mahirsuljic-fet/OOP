@@ -18,7 +18,8 @@ int main()
 
     if (s1.size() != s2.size())
       std::cout << "\nStrings must have equal length!\n\n";
-  } while (s1.size() != s2.size());
+  }
+  while (s1.size() != s2.size());
 
   // pretvori sve u mala slova
   // jer se 'A' i 'a' tretiraju kao isti karakteri

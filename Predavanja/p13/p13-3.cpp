@@ -20,8 +20,7 @@ struct Foo
 
     Foo() { }
     ~Foo() { }
-    Foo(const Foo& drugi) :
-      a { drugi.a } { }
+    Foo(const Foo& drugi) : a { drugi.a } { }
     Foo& operator=(const Foo& drugi)
     {
       a = drugi.a;
@@ -30,8 +29,7 @@ struct Foo
     // jos move konstruktor i move operator =, pogledaj p13-4.cpp
 
     // ovaj se takodje pravi u ovom slucaju zbog int a;
-    Foo(int ap) :
-      a { ap } { }
+    Foo(int ap) : a { ap } { }
 };
 
 int main(int argc, char* argv[])

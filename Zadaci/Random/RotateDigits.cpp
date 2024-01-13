@@ -39,7 +39,7 @@ int rotatedDigits(int n)
 
 int main(int argc, char* argv[])
 {
-  int n{};
+  int n {};
   std::cin >> n;
   std::cout << rotatedDigits(n) << '\n';
 

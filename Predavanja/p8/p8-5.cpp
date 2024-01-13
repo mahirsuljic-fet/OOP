@@ -2,14 +2,14 @@
 
 struct Complex
 {
-  double r;
-  double i;
+    double r;
+    double i;
 };
 
 struct Osoba
 {
-  std::string ime;
-  std::string prezime;
+    std::string ime;
+    std::string prezime;
 };
 
 int main(int argc, char* argv[])

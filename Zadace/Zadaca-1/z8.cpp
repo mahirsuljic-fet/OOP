@@ -1,7 +1,7 @@
 // Mahir Suljic - OOP Zadaca 2023. - Zadatak 8
 
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
 #include <vector>
 
 int main()

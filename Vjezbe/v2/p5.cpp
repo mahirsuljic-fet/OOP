@@ -3,8 +3,8 @@
 int a = 9;
 double c;
 
-int main (int argc, char *argv[])
-{  
+int main(int argc, char* argv[])
+{
   {
     int a = 5;
     short d = 4;

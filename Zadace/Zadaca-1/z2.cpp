@@ -4,9 +4,9 @@
 
 namespace Register
 {
-  unsigned short A = 0;
-  unsigned short B = 0;
-  unsigned short current = 0;
+unsigned short A = 0;
+unsigned short B = 0;
+unsigned short current = 0;
 }
 
 int main()
@@ -20,7 +20,7 @@ int main()
     registar current koji overwrite-a prvobitno
     izabrani registar pri kraju while petlje
   */
- 
+
   short currentRegIndex = 0; // 1-A; 2-B
   short option = 0;
 

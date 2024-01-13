@@ -9,13 +9,13 @@ std::vector<int> sortNumsAscending(std::vector<int> arr)
   while (swapped)
   {
     swapped = false;
-    for (int i=0; i<arr.size() - 1; i++)
+    for (int i = 0; i < arr.size() - 1; i++)
     {
-      if (arr[i+1] < arr[i])
+      if (arr[i + 1] < arr[i])
       {
         int temp = arr[i];
-        arr[i] = arr[i+1];
-        arr[i+1] = temp;
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
         swapped = true;
       }
     }
@@ -24,9 +24,9 @@ std::vector<int> sortNumsAscending(std::vector<int> arr)
   return arr;
 }
 
-int main (int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-  std::vector<int> arr = {45, 98, 35, 65, 97, 21, 33};
+  std::vector<int> arr = { 45, 98, 35, 65, 97, 21, 33 };
 
   for (auto n : arr) std::cout << n << " ";
   std::cout << std::endl;

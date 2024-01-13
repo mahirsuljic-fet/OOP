@@ -23,10 +23,8 @@
 
 // string.at(); - sprecava nedefinisano posananje npr foo[10] za foo.size()==3,ali sporije
 
-
-int main (int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-
 
   std::cout << std::endl;
   return 0;

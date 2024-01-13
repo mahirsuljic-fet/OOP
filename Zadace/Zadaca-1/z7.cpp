@@ -1,8 +1,8 @@
 // Mahir Suljic - OOP Zadaca 2023. - Zadatak 7
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 int main()
 {
@@ -50,11 +50,9 @@ int main()
   {
     for (int j = 0; j < max + 2 * (border + padding); j++)
     {
-      if (i < border || i > vec.size() + border + 2 * padding - 1 ||
-          j < border || j > max + border + 2 * padding - 1)
+      if (i < border || i > vec.size() + border + 2 * padding - 1 || j < border || j > max + border + 2 * padding - 1)
         std::cout << "+";
-      else if ((i >= border + padding && i < vec.size() + border + padding) &&
-               j == border + padding)
+      else if ((i >= border + padding && i < vec.size() + border + padding) && j == border + padding)
       {
         std::cout << vec[i - border - padding];
         j += vec[i - border - padding].size() - 1;

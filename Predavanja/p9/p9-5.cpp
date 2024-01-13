@@ -9,8 +9,8 @@ auto tajna_zivota(T a, U b)
 
 struct Student
 {
-  std::string ime;
-  std::string prezime;
+    std::string ime;
+    std::string prezime;
 };
 
 int main(int argc, char* argv[])

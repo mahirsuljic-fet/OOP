@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main (int argc, char *argv[])
+int main(int argc, char* argv[])
 {
   int a = 5;
   short b = 32765;
@@ -11,15 +11,15 @@ int main (int argc, char *argv[])
   float f = 5000.f;
   bool g = true;
 
-  a = b + 5.5;  // 32770
+  a = b + 5.5; // 32770
 
-  b = b + 5.;   // -32766
+  b = b + 5.; // -32766
 
-  c = c + 4;    // Z
+  c = c + 4; // Z
 
-  d = d + b;    // 33970
+  d = d + b; // 33970
 
-  e = e + 0.5777998;  // 
+  e = e + 0.5777998; //
 
   f = f + 0.37777f;
 

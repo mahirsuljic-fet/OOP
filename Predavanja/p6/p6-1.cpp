@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[])
+{
   /*
    * ukoliko je cin buffer prazan aktivira se line editor
    * koji parsira uneseni string i sve do praznog prostora

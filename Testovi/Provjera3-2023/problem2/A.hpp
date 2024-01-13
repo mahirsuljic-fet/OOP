@@ -4,8 +4,7 @@
 const std::string P = "P3";
 struct A
 {
-    A() :
-      b2 { "xyz" }, b1 { P }
+    A() : b2 { "xyz" }, b1 { P }
     {
       std::cout << "1";
     }

@@ -7,14 +7,11 @@ struct Foo
 {
     std::string a { "foo" };
 
-    Foo() :
-      a { "foo" } { }
+    Foo() : a { "foo" } { }
     ~Foo() { }
-    Foo(const Foo& drugi) :
-      a { drugi.a } { }
+    Foo(const Foo& drugi) : a { drugi.a } { }
 
-    Foo(Foo&& drugi) :
-      a { std::move(drugi.a) } // da nema move vrsilo bi se kopiranje
+    Foo(Foo&& drugi) : a { std::move(drugi.a) } // da nema move vrsilo bi se kopiranje
     {
       // unutar ovog opsega drugi je trajni objekat!
       // Foo& test = drugi; // validno
@@ -32,8 +29,7 @@ struct Foo
       return *this;
     }
 
-    Foo(std::string ap) :
-      a { ap } { }
+    Foo(std::string ap) : a { ap } { }
 };
 
 int main(int argc, char* argv[])

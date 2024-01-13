@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 
-int main() {
+int main()
+{
   using namespace std;
 
   vector<double> v;
@@ -16,20 +17,22 @@ int main() {
     suma += x;
 
   const auto br_elemenata = v.size();
-  if (br_elemenata > 0) {
+  if (br_elemenata > 0)
+  {
     sort(v.begin(), v.end());
 
     const auto srednji_index = br_elemenata / 2;
     auto medijan = br_elemenata % 2
-                       ? v[srednji_index]
-                       : (v[srednji_index] + v[srednji_index - 1]) / 2;
+      ? v[srednji_index]
+      : (v[srednji_index] + v[srednji_index - 1]) / 2;
 
     // pri koristenju ternarnog operatora uvijek se vraca isti tip
     // ako jedna "grana" daje double a druga int, auto medijan ce biti double
 
     cout << "Prosjek je " << suma / br_elemenata << endl;
     cout << "Medijan je " << medijan << endl;
-  } else
+  }
+  else
     cout << "Nema elemenata!\n";
 
   return 0;

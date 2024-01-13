@@ -31,9 +31,7 @@ int main()
       }
     }
 
-    if (s_op.size() > 1 ||
-        (s_op[0] != '+' && s_op[0] != '-' && s_op[0] != '*' &&
-         s_op[0] != '/' && s_op[0] != '%' && s_op[0] != '^'))
+    if (s_op.size() > 1 || (s_op[0] != '+' && s_op[0] != '-' && s_op[0] != '*' && s_op[0] != '/' && s_op[0] != '%' && s_op[0] != '^'))
     {
       std::cout << s_op << " is not a valid input!\n";
       success = false;

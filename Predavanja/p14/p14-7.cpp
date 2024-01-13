@@ -31,8 +31,7 @@ struct par<M, std::string>
     M a_;
 
   public:
-    par(M a) :
-      a_ { a } { }
+    par(M a) : a_ { a } { }
     M getA() const { return a_; }
 };
 

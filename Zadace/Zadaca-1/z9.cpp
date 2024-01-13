@@ -1,8 +1,8 @@
 // Mahir Suljic - OOP Zadaca 2023. - Zadatak 9
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
     ukoliko se unese vise rijeci odjednom (sa razmakom)
     tada se te rijeci unose u vektor odvojeno, kao posebne rijeci
   */
- 
+
   while (true)
   {
     std::string s = "";
@@ -86,8 +86,7 @@ int main()
   {
     for (int j = 0; j < longest.size() + 4; j++)
     {
-      if (i == 0 || i == 4 ||
-          j == 0 || j == longest.size() + 3)
+      if (i == 0 || i == 4 || j == 0 || j == longest.size() + 3)
         std::cout << "+";
       else if (i == 2 && j == 2)
       {

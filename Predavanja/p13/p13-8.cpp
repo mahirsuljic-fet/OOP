@@ -4,8 +4,7 @@ struct Foo
 {
     int a;
 
-    Foo(int ap) :
-      a { ap } { }
+    Foo(int ap) : a { ap } { }
     int operator()(int b)
     {
       return a + b;

@@ -1,6 +1,6 @@
 // Napisati program koji trazi od korisnika unos imena,
 // a zatim na ekran ispisuje uokvireno ime sa praznim prostorom
-// sirine 2 karaktera. 
+// sirine 2 karaktera.
 //
 // Primjer:
 //
@@ -19,7 +19,7 @@
 #include <iostream>
 #include <string>
 
-int main (int argc, char *argv[])
+int main(int argc, char* argv[])
 {
   std::string pre = "Pozdrav ";
   std::string s;
@@ -32,19 +32,19 @@ int main (int argc, char *argv[])
   const int border = 1;
   const int padding = 1;
 
-  for (int i = 0; i < 2*(border + padding) + 1; i++)
+  for (int i = 0; i < 2 * (border + padding) + 1; i++)
   {
-    for (int j = 0; j < len + 2*(border + padding); j++)
+    for (int j = 0; j < len + 2 * (border + padding); j++)
     {
-      if (i < border || i > border + 2*padding ||
-        j < border || j > len + border + 2*padding - 1)
+      if (i < border || i > border + 2 * padding || j < border || j > len + border + 2 * padding - 1)
         std::cout << "*";
       else if (i == border + padding && j == border + padding)
       {
         std::cout << pre << s << post;
         j += len - 1;
       }
-      else std::cout << " ";
+      else
+        std::cout << " ";
     }
 
     std::cout << std::endl;

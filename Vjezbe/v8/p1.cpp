@@ -25,8 +25,7 @@ class C
     B b;
 
   public:
-    C() :
-      b(2)
+    C() : b(2)
     {
       std::cout << "Constructor of C\n";
     }

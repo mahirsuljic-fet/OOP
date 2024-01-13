@@ -12,13 +12,11 @@ struct A
 struct B
 {
     B() { std::cout << 4; }
-    B(const B& other) :
-      a { std::move(other.a) }
+    B(const B& other) : a { std::move(other.a) }
     {
       std::cout << 5;
     }
-    B(B&& other) :
-      a { std::move(other.a) }
+    B(B&& other) : a { std::move(other.a) }
     {
       std::cout << 6;
     }

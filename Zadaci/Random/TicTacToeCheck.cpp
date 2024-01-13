@@ -99,51 +99,51 @@ std::string ticTacToe(std::vector<std::vector<char>> inputs)
   return "It's a Tie";
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'O', 'X', 'O'},
-                          {'O', '#', 'X'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'O', 'X', 'O' },
+    { 'O', '#', 'X' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'O', 'X', 'O'},
-                          {'O', '#', 'O'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'O', 'X', 'O' },
+    { 'O', '#', 'O' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'O', 'X', 'O'},
-                          {'O', 'O', '#'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'O', 'X', 'O' },
+    { 'O', 'O', '#' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'X', 'X', 'O'},
-                          {'X', 'O', '#'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'X', 'X', 'O' },
+    { 'X', 'O', '#' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', '#', 'O'},
-                          {'X', 'X', 'O'},
-                          {'#', 'O', '#'}})
+  std::cout << ticTacToe({ { 'X', '#', 'O' },
+    { 'X', 'X', 'O' },
+    { '#', 'O', '#' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'X', 'X'},
-                          {'X', 'O', 'O'},
-                          {'O', 'O', 'X'}})
+  std::cout << ticTacToe({ { 'X', 'X', 'X' },
+    { 'X', 'O', 'O' },
+    { 'O', 'O', 'X' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'X', 'O', 'O'},
-                          {'O', 'X', 'X'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'X', 'O', 'O' },
+    { 'O', 'X', 'X' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'X', 'O', 'O'},
-                          {'#', 'X', 'X'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'X', 'O', 'O' },
+    { '#', 'X', 'X' } })
             << std::endl;
 
-  std::cout << ticTacToe({{'X', 'O', 'O'},
-                          {'O', 'O', 'O'},
-                          {'#', 'X', 'X'}})
+  std::cout << ticTacToe({ { 'X', 'O', 'O' },
+    { 'O', 'O', 'O' },
+    { '#', 'X', 'X' } })
             << std::endl;
 
   return 0;

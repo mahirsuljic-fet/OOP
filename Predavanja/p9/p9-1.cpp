@@ -5,14 +5,14 @@
 
 struct Foo
 {
-  int a;
-  double b;
+    int a;
+    double b;
 
-  struct Bar
-  {
-    char k;
-    float f;
-  };
+    struct Bar
+    {
+        char k;
+        float f;
+    };
 };
 
 Foo c { 5, 3.3 };

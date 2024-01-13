@@ -88,8 +88,10 @@ int main()
       c = temp;
     }
 
-    if (c * c == a * a + b * b) std::cout << "This is a right triangle.\n";
-    else                        std::cout << "This is not a right triangle.\n";
+    if (c * c == a * a + b * b)
+      std::cout << "This is a right triangle.\n";
+    else
+      std::cout << "This is not a right triangle.\n";
   }
   break;
   // Right triangle list

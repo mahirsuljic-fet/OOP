@@ -5,11 +5,9 @@ struct Node
     int podatak;
     Node* sljedeci; // pokazuje na sljedeci element u listi
 
-    Node(int n) :
-      podatak(n), sljedeci(nullptr) { }
+    Node(int n) : podatak(n), sljedeci(nullptr) { }
 
-    Node(int n, Node* p) :
-      podatak(n), sljedeci(p) { }
+    Node(int n, Node* p) : podatak(n), sljedeci(p) { }
 };
 
 void dodaj_element_kraj(Node*& glava, const int& n)

@@ -4,46 +4,46 @@
 
 namespace Temperature
 {
-  const double CelsiusKelvinCoef = 273.15;
-  const double CelsiusFahrenheitMultCoef = 1.8;
-  const double CelsiusFahrenheitAddCoef = 32.0;
-  const double KelvinFahrenheitMultCoef = 5.0 / 9.0;
-  const double KelvinFahrenheitAddCoef = 459.67;
-  const double minCelsius = -273.15;
-  const double minFahrenheit = -459.67;
-  const double minKelvin = 0.0;
+const double CelsiusKelvinCoef = 273.15;
+const double CelsiusFahrenheitMultCoef = 1.8;
+const double CelsiusFahrenheitAddCoef = 32.0;
+const double KelvinFahrenheitMultCoef = 5.0 / 9.0;
+const double KelvinFahrenheitAddCoef = 459.67;
+const double minCelsius = -273.15;
+const double minFahrenheit = -459.67;
+const double minKelvin = 0.0;
 }
 
 namespace Speed
 {
-  const double KilometerMileCoef = 1.60934;
-  const double minSpeed = 0.0;
+const double KilometerMileCoef = 1.60934;
+const double minSpeed = 0.0;
 }
 
 namespace Length
 {
-  const double LightYearKilometerCoef = 9460730472580.8;
-  const double FeetMeterCoef = 0.3048;
-  const double InchCentimeterCoef = 2.54;
-  const double maxDoubleInteger = 1L << __DBL_MANT_DIG__;
-  // (1L << __DBL_MANT_DIG__), odnosno 2 na 53 daje najveci cijeli broj koji se moze sa sigurnoscu pohraniti u double
-  // u ovom slucaju koristi se da bi se ogranicio i osigurao
-  // tacan rezultat pri konverziji svjetlosnih godina u kilometre
-  // 1L oznacava da je broj 1 tipa long sto cini left-shift-ovanje sa 53 (__DBL_MANT_DIG__) moguce
-  const double maxLyToKm = maxDoubleInteger / LightYearKilometerCoef - 1;
-  const double minLength = 0.0;
+const double LightYearKilometerCoef = 9460730472580.8;
+const double FeetMeterCoef = 0.3048;
+const double InchCentimeterCoef = 2.54;
+const double maxDoubleInteger = 1L << __DBL_MANT_DIG__;
+// (1L << __DBL_MANT_DIG__), odnosno 2 na 53 daje najveci cijeli broj koji se moze sa sigurnoscu pohraniti u double
+// u ovom slucaju koristi se da bi se ogranicio i osigurao
+// tacan rezultat pri konverziji svjetlosnih godina u kilometre
+// 1L oznacava da je broj 1 tipa long sto cini left-shift-ovanje sa 53 (__DBL_MANT_DIG__) moguce
+const double maxLyToKm = maxDoubleInteger / LightYearKilometerCoef - 1;
+const double minLength = 0.0;
 }
 
 namespace Weight
 {
-  const double KilogramPountCoef = 2.20462;
-  const double minWeight = 0.0;
+const double KilogramPountCoef = 2.20462;
+const double minWeight = 0.0;
 }
 
 namespace FuelEconomy
 {
-  const double KmMPGCoef = 235.215;
-  const double minFuelEconomy = 0.0;
+const double KmMPGCoef = 235.215;
+const double minFuelEconomy = 0.0;
 }
 
 int main()
@@ -100,8 +100,7 @@ int main()
         }
 
         std::cout << t << " degrees Celsius is "
-                  << t * Temperature::CelsiusFahrenheitMultCoef +
-                         Temperature::CelsiusFahrenheitAddCoef
+                  << t * Temperature::CelsiusFahrenheitMultCoef + Temperature::CelsiusFahrenheitAddCoef
                   << " degrees Fahrenheit.\n";
         break;
       // Fahrenheit to Celsius

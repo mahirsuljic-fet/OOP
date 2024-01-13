@@ -8,22 +8,19 @@
 class MojNiz
 {
   public:
-    MojNiz(std::initializer_list<int> a) :
-      p_ { new int[n_] }, n_ { a.size() }
+    MojNiz(std::initializer_list<int> a) : p_ { new int[n_] }, n_ { a.size() }
     {
       std::copy(begin(a), end(a), p_);
     }
 
     // COPY KONSTRUKTOR
-    MojNiz(const MojNiz& drugi) :
-      p_ { new int[n_] }, n_ { drugi.n_ }
+    MojNiz(const MojNiz& drugi) : p_ { new int[n_] }, n_ { drugi.n_ }
     {
       std::copy(drugi.p_, drugi.p_ + drugi.n_, p_);
     }
 
     // MOVE KONSTRUKTOR
-    MojNiz(MojNiz&& drugi) :
-      p_ { drugi.p_ }, n_ { drugi.n_ }
+    MojNiz(MojNiz&& drugi) : p_ { drugi.p_ }, n_ { drugi.n_ }
     {
       // pri umiranju objekta poziva se destruktor koji u ovom slucaju
       // brise podatke koji su se nalazili na p_

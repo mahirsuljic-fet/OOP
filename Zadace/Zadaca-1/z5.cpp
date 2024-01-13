@@ -39,7 +39,11 @@ int main()
 
   for (int i = 0; i < vec.size(); i++) std::cout << vec[i];
 
-  std::cout << std::endl << min << std::endl << max << std::endl << sum << std::endl << prod << std::endl;
+  std::cout << std::endl
+            << min << std::endl
+            << max << std::endl
+            << sum << std::endl
+            << prod << std::endl;
 
   return 0;
 }

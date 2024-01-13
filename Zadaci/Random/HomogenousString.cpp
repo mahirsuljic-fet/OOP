@@ -8,7 +8,7 @@ long long countHomogenous(std::string s)
 {
   long long count = 0;
   int subcount = 1;
-  const char *arr = s.c_str();
+  const char* arr = s.c_str();
   char lastChar = '\0';
 
   for (int i = 0; i < s.size(); i++)
@@ -29,7 +29,7 @@ long long countHomogenous(std::string s)
   return count % (10L * 10L * 10L * 10L * 10L * 10L * 10L * 10L * 10L + 7L); // 10^9 + 7
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
   std::string s = "abbcccaa";
   std::cout << "Analysing string \"" << s << "\"...\n\nFound " << countHomogenous(s) << " homogenous substrings in string \"" << s << "\"" << std::endl;

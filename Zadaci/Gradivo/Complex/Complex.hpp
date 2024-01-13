@@ -7,10 +7,8 @@
 class Complex
 {
   public:
-    Complex() :
-      _re { 0 }, _im { 0 } { }
-    Complex(double re, double im) :
-      _re { re }, _im { im } { }
+    Complex() : _re { 0 }, _im { 0 } { }
+    Complex(double re, double im) : _re { re }, _im { im } { }
 
     ~Complex() = default;
     Complex(Complex&&) = default;
