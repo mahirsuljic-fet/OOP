@@ -8,8 +8,8 @@ class B
 
     B(B&&) { std::cout << "B&&\n"; };
     B(const B&) { std::cout << "const B&\n"; };
-    B(B&) { std::cout << "B&\n"; };
-    B(const B&&) { std::cout << "const B&&\n"; };
+    // B(B&) { std::cout << "B&\n"; };
+    // B(const B&&) { std::cout << "const B&&\n"; };
 };
 
 void kod_bez_cout()
@@ -49,8 +49,8 @@ int main(int argc, char* argv[])
   std::cout << "DOSTUPNI KONSTRUKTORI:\n"
                "- B(B&&)\n"
                "- B(const B&)\n"
-               "- B(B&)\n"
-               "- B(const B&&)\n"
+               // "- B(B&)\n"
+               // "- B(const B&&)\n"
                "\n\n";
 
   std::cout << "     ARGUMENT    |   KONSTRUKTOR\n"
