@@ -34,7 +34,7 @@ struct Foo
 
 int main(int argc, char* argv[])
 {
-  // Primjer 1 - COPY =
+  // Primjer 1 - MOVE konstruktor i MOVE =
   // MojNiz m { bar(false) };
   // m = bar(true);
   // m.at(1) = 100;
