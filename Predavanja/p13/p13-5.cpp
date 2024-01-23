@@ -4,7 +4,7 @@ struct Foo
 {
     Foo operator+(const Foo& b) const;
     Foo operator-() const; // unarni -
-    Foo operator+(int); // za a + 2
+    Foo operator+(int);    // za a + 2
 };
 
 // Foo operator+(const Foo& a, const Foo& b); // isto kao i implementacija kao metoda

@@ -14,7 +14,7 @@ TEST_CASE(
   mojNiz.push_back(5);
   CHECK_EQ(mojNiz.size(), 1);
   CHECK_EQ(mojNiz.at(0), 5);
-  auto addr51 = &mojNiz[0]; // taking address of 5 just after first push_back
+  auto addr51 = &mojNiz[0];       // taking address of 5 just after first push_back
   CHECK_EQ(mojNiz.capacity(), 1); // capacity should still be 1
 
   mojNiz.push_back(7);
@@ -129,7 +129,7 @@ TEST_CASE("Expects to implement pop_back, back and front methods")
   CHECK_EQ(mojNiz.size(), 1);
   CHECK_EQ(mojNiz.back(), 5);
   CHECK_EQ(mojNiz.front(), 5);
-  auto addr51 = &mojNiz[0]; // taking address of 5 just after first push_back
+  auto addr51 = &mojNiz[0];       // taking address of 5 just after first push_back
   CHECK_EQ(mojNiz.capacity(), 1); // capacity should still be 1
 
   mojNiz.push_back(7);
@@ -159,32 +159,32 @@ TEST_CASE("Expects to implement pop_back, back and front methods")
   CHECK_EQ(mojNiz.size(), 2);
   CHECK_EQ(mojNiz.front(), 5);
   CHECK_EQ(mojNiz.back(), 7);
-  auto addr54 = &mojNiz[0]; // taking address of 5 after push_back of 9
-  CHECK_EQ(addr54, addr53); // addresses should be the same since pop_back
-                            // should never reallocate
+  auto addr54 = &mojNiz[0];       // taking address of 5 after push_back of 9
+  CHECK_EQ(addr54, addr53);       // addresses should be the same since pop_back
+                                  // should never reallocate
   CHECK_EQ(mojNiz.capacity(), 4); // pop_back does not change capacity
 
   mojNiz.pop_back();
   CHECK_EQ(mojNiz.size(), 1);
   CHECK_EQ(mojNiz.front(), 5);
   CHECK_EQ(mojNiz.back(), 5);
-  auto addr55 = &mojNiz[0]; // taking address of 5 after push_back of 9
-  CHECK_EQ(addr55, addr54); // addresses should be the same since pop_back
-                            // should never reallocate
-  CHECK_EQ(addr55, addr53); // addresses should be the same since pop_back
-                            // should never reallocate
+  auto addr55 = &mojNiz[0];       // taking address of 5 after push_back of 9
+  CHECK_EQ(addr55, addr54);       // addresses should be the same since pop_back
+                                  // should never reallocate
+  CHECK_EQ(addr55, addr53);       // addresses should be the same since pop_back
+                                  // should never reallocate
   CHECK_EQ(mojNiz.capacity(), 4); // pop_back does not change capacity
 
   mojNiz.push_back(19);
   CHECK_EQ(mojNiz.size(), 2);
   CHECK_EQ(mojNiz.front(), 5);
   CHECK_EQ(mojNiz.back(), 19);
-  auto addr56 = &mojNiz[0]; // taking address of 5 after push_back of 9
-  CHECK_EQ(addr56, addr55); // addresses should be the same since pop_back
-                            // should never reallocate
-  CHECK_EQ(addr56, addr54); // addresses should be the same since pop_back
-                            // should never reallocate
-  CHECK_EQ(addr56, addr53); // addresses should be the same since pop_back
-                            // should never reallocate
+  auto addr56 = &mojNiz[0];       // taking address of 5 after push_back of 9
+  CHECK_EQ(addr56, addr55);       // addresses should be the same since pop_back
+                                  // should never reallocate
+  CHECK_EQ(addr56, addr54);       // addresses should be the same since pop_back
+                                  // should never reallocate
+  CHECK_EQ(addr56, addr53);       // addresses should be the same since pop_back
+                                  // should never reallocate
   CHECK_EQ(mojNiz.capacity(), 4); // pop_back does not change capacity
 }

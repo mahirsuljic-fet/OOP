@@ -1,13 +1,16 @@
-#include <iostream>
-#include "operators.hpp"
 #include "helpers.hpp"
+#include "operators.hpp"
+#include <iostream>
 
 int main(void)
 {
   vjezbe08::Cplx c1, c2, c3;
-  c1.re = 5.; c1.im = -2.;
-  c2.re = 3.; c2.im = 6.;
-  c3.re = 9.; c3.im = 0.;
+  c1.re = 5.;
+  c1.im = -2.;
+  c2.re = 3.;
+  c2.im = 6.;
+  c3.re = 9.;
+  c3.im = 0.;
 
   std::cout << "c1=";
   vjezbe08::print(c1);
@@ -58,18 +61,18 @@ int main(void)
 
   // Ispis:
   // (-1+4i) * (8+4i) = (-24+28i)
- 
+
   // std::cout << "c3=";
   // vjezbe08::print(c3);
   // std::cout << std::endl;
   //
   // vjezbe08::append(c3, c5);
   // vjezbe08::append(c3, c2);
-  // 
+  //
   // std::cout << "c3=";
   // vjezbe08::print(c3);
   // std::cout << std::endl;
-  
+
   // Ispis:
   // c3=(9)
   // c3=(11+10i)

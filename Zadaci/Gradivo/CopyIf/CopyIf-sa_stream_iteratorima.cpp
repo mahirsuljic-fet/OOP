@@ -26,8 +26,8 @@ int main(int argc, char* argv[])
 {
   std::cout << "Unesite brojeve:\n";
 
-  std::istream_iterator<int> kraj; // default konstrukcija, pomocu ovog cemo provjeravat validnost unosa
-  std::istream_iterator<int> it(std::cin); // koristimo std::cin istream, unosit cemo brojeve (int)
+  std::istream_iterator<int> kraj;                  // default konstrukcija, pomocu ovog cemo provjeravat validnost unosa
+  std::istream_iterator<int> it(std::cin);          // koristimo std::cin istream, unosit cemo brojeve (int)
   std::ostream_iterator<int> izlaz(std::cout, " "); // ispisujemo brojeve (int) u os i posle svakog broja " "
 
   // std::vector<int> brojevi(it, kraj);

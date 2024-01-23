@@ -11,8 +11,7 @@ class Radian
   public:
     // explicit sprjecava implicitnu konverziju
     // Radian r = 3.14; se nece kompajlirat
-    explicit Radian(double value) :
-      value_ { value } { }
+    explicit Radian(double value) : value_ { value } { }
 
     double getValue() const
     {

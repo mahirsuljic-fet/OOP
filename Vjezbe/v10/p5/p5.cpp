@@ -108,8 +108,7 @@ class StringList
       }
     }
 
-    StringList(const StringList& other) :
-      count_(0)
+    StringList(const StringList& other) : count_(0)
     {
       auto* walk = other.start_;
       Details::Node* prev = nullptr;

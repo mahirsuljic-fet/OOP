@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
   using namespace std;
 
   int a = 5;
-  int b { a }; // copy konstrukcija
+  int b { a };  // copy konstrukcija
   int& c { a }; // & - ref
   double d = b;
   double& e = d;

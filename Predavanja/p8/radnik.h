@@ -4,9 +4,9 @@
 
 struct radnik
 {
-  std::string ime;
-  int starost;
-  double plata;
+    std::string ime;
+    int starost;
+    double plata;
 };
 
 bool poImenu(const radnik&, const radnik&);

@@ -58,9 +58,9 @@ Foo test(bool k)
 
 int main(int argc, char* argv[])
 {
-  Foo f1 = Foo {}; // cc edlision
-  Foo f2 = foo(true); // ne moze se izvrsiti cc elision
-  Foo f3 = bar(); // moze se izvrsiti cc elision
+  Foo f1 = Foo {};     // cc edlision
+  Foo f2 = foo(true);  // ne moze se izvrsiti cc elision
+  Foo f3 = bar();      // moze se izvrsiti cc elision
   Foo f4 = test(true); // moze se izvrsiti cc elision
 
   return 0;

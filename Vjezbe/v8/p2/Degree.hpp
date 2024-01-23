@@ -9,8 +9,7 @@ namespace vjezbe10
 class Degree
 {
   public:
-    Degree(double value) :
-      value_ { value } { }
+    Degree(double value) : value_ { value } { }
 
     double getValue() const
     {

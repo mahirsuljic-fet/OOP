@@ -6,4 +6,4 @@ namespace vjezbe08
 
 Cplx add(const Cplx& lhs, const Cplx& rhs);
 
-} /* vjezbe08 */ 
+} /* vjezbe08 */

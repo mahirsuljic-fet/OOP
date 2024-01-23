@@ -1,8 +1,8 @@
 #pragma once
 
-namespace  vjezbe10
+namespace vjezbe10
 {
-  
+
 extern const double PI;
 
-} /*  vjezbe10 */ 
+} /*  vjezbe10 */
