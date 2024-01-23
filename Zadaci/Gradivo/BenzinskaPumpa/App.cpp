@@ -87,7 +87,7 @@ void App::obrisi_pumpu(const std::string& ime, std::string grad)
   {
     if (it->ime() == ime && it->grad() == grad)
     {
-      _pumpe.erase(it);
+      _pumpe.erase(it); // za brisanje mora imati definisan copy operator =
       return;
     }
 
