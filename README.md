@@ -13,7 +13,7 @@ Opis direktorija:
     - _Random_ 	    - urađeni zadaci, nevezani za gradivo predmeta
 - _Testovi_  	- urađeni testovi sa rokova
 - _Instrukcije_ - primjeri i zadaci sa održanih instrukcija
-- _Learning_  	- kod koji nije nužno vezan za predmet, ali demonstrira neke povezane koncepte, uglavnom ignorisati
+- _Literatura_  - knjige vezane za predmet i c++
 
 <br>
 
