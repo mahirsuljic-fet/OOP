@@ -1,6 +1,6 @@
 Ovo je repozitorija za predmet Objektno orjentirano programiranje (OOP).
 Kako bi skinuli repozitoriju potrebno je u terminalu izvšiti komandu `git clone https://github.com/mahirsuljic-fet/OOP.git`,
-nakon čega će se napraviti direktorija "OOP" na mjestu gdje ste izvršili komandu. Kako bi updateali repozitoriju potrebno je u terminalu izvršiti komandu `git pull`.
+nakon čega će se napraviti direktorija "OOP" na mjestu gdje ste izvršili komandu. Kako bi update-ali repozitoriju potrebno je u terminalu izvršiti komandu `git pull`.
 
 <br>
 
@@ -26,6 +26,3 @@ Opis fajlova:
 	_path-to-file_ je putanja do mjesta gdje se nalazi _usefulminifuncs.cpp_, npr. ako se nalazi u Documents, treba napisati `#include "~Documents/usefulminifuncs.cpp"`
 	Definicije funkcija mogu pomoći pri učenju te ih vrijedi pogledati, ali nisu nužno napisane za tu namjenu i njihov kod nije pojašnjen.
 	Primjer kako se ovaj fajl i funkcije u njemu mogu koristiti je dat u fajlu _usefulminifuncs-example.cpp_.
-
-- **.clang-format**  
-	U ovom fajlu se nalazi konfiguracija po kojoj nvim formatira kod koristeći clang-format. Uglavnom ignorisati.
