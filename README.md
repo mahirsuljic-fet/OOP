@@ -1,4 +1,4 @@
-#OOP
+# OOP
 
 Ovo je repozitorija za predmet Objektno orjentirano programiranje (OOP).
 Kako bi skinuli repozitoriju potrebno je u terminalu izvšiti komandu `git clone https://github.com/mahirsuljic-fet/OOP.git`,
