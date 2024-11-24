@@ -43,6 +43,10 @@ Ovo je još jedna od mojih repozitorija u kojoj možete naći dosta korisnih stv
 Za pokretanje skripte koristi se komanda `. ./getcppshell.sh` pri čemu je potrebno biti u direktoriji gdje se nalazi `getcppshell.sh`.
 Skripta automatski skine najnoviju verziju okruženja, odradi sve što je potrebno i vrati terminal u direktoriju u kojoj je i bio.
 
+### Komanda za brisanje NIX cache
+Ukoliko se skine okruženje i u nekog kraćem periodu (npr. 1 dan) izađe nova verzija okruženja neće biti moguće preuzeti novu verziju dok ne prođe taj period.
+Čekanje se može zaobići brisanjem cache-a komandom `rm -rf ~/.cache/nix/`.
+
 ### [**usefulminifuncs.cpp**](./usefulminifuncs.cpp)
 Ovo je fajl koji je napravljen da posluži pri vježbanju programiranja.
 U njemu se nalaze neke kratke funkcije kao npr. funkcija `print_container` koja služi za ispis std containera (vector, list, map, ...).
