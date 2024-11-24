@@ -39,6 +39,10 @@ Knjige vezane za predmet i c++
 ## [Random Useful](https://github.com/mahirsuljic-fet/RandomUseful)
 Ovo je još jedna od mojih repozitorija u kojoj možete naći dosta korisnih stvari kao što su podešavanje sopstvene [neovim](https://github.com/mahirsuljic-fet/RandomUseful/blob/main/nvim.txt) konfiguracije, korisne [bashrc](https://github.com/mahirsuljic-fet/RandomUseful/blob/main/bashrc.txt) komande, moja [clang-format](https://github.com/mahirsuljic-fet/RandomUseful/blob/main/.clang-format) konfiguracija za formatiranje koda, rješenja nekih problema, itd.
 
+### [Skripta za instalaciju/update okruženja](./getcppshell.sh)
+Za pokretanje skripte koristi se komanda `. ./getcppshell.sh` pri čemu je potrebno biti u direktoriji gdje se nalazi `getcppshell.sh`.
+Skripta automatski skine najnoviju verziju okruženja, odradi sve što je potrebno i vrati terminal u direktoriju u kojoj je i bio.
+
 ### [**usefulminifuncs.cpp**](./usefulminifuncs.cpp)
 Ovo je fajl koji je napravljen da posluži pri vježbanju programiranja.
 U njemu se nalaze neke kratke funkcije kao npr. funkcija `print_container` koja služi za ispis std containera (vector, list, map, ...).
